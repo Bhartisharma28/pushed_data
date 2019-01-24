@@ -1,0 +1,185 @@
+ï»¿(function () {
+    'use strict';
+    //var response = function () {
+    //    return this.responseText;
+    //    //if (this.readyState == 4) {
+    //    //    alert(this.responseText)
+    //    //    //document.getElementById("sum").value = this.responseText;
+    //    //}
+    //}
+    //response.data=null;
+    angular
+        .module('ui.bootstrap.demo')
+        .factory('UserService', UserService);
+
+    UserService.$inject = ['$http'];
+    function UserService($http) {
+		
+		var jsConfig = window.jsConfig || {};
+        var service = {};
+        service.Login = Login;
+        service.CreateTempStudent = CreateTempStudent;
+        service.SendOTP = SendOTP;
+        service.GetTempStudent = GetTempStudent;
+        service.GetUserRegistrationStatusDetail = GetUserRegistrationStatusDetail;
+        service.VerifyOTP = VerifyOTP;
+        service.CheckUserIDAvailability=CheckUserIDAvailability;
+        service.CreateAzureAD = CreateAzureAD;
+        service.CreateStudent = CreateStudent;
+        service.ChangePassword = ChangePassword;
+        service.CreatePI = CreatePI;
+        service.GenerateCaptha = GenerateCaptha;
+        service.PlayAudio = PlayAudio;
+        service.IsValidCaptcha = IsValidCaptcha;
+        service.WebApiUrl = (jsConfig.mmadApiEndpoint || 'https://api.swayam.gov.in/MMADServices/api') + '/';
+         service.WebMApiUrl = 'www.swayam.gov.in';
+         service.HomePageUrl = 'https://swayam.gov.in';
+         service.PILoginRedirectUrl = 'https://pi.swayam.gov.in/dashboard';
+         service.PILogOutRedirectUrl = 'https://swayam.gov.in/Account/SignOut';
+        service.NCLoginRedirectUrl = 'https://manage.swayam.gov.in/home/index';
+         //service.NCLoginRedirectUrl = 'https://localhost:44325/home/index';
+         service.NCLogOutRedirectUrl = 'https://swayam.gov.in/Account/SignOut';
+         service.ErrorPathEn = 'https://swayam.gov.in/Errors/CustomError.html';
+         service.ErrorPathHi = 'https://swayam.gov.in/Errors/CustomErrorHindi.html';
+         service.indexPublic = 'https://swayam.gov.in/indexpublic.html#/';
+         service.LearningPath = '/learningpath/';
+         service.assetsPath="https://assets.swayam.gov.in"		 
+        return service;
+         function GenerateCaptha() {
+             return $http.Get(service.WebApiUrl + 'Captcha/GenerateCaptha').then(handleSuccess, handleADError);
+          
+         }
+         function IsValidCaptcha(CaptchaValue) {
+             return $http.Post(service.WebApiUrl + 'Captcha/PostIsValidCaptcha?CaptchaValue=' + CaptchaValue, CaptchaValue, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleADError);
+          
+         }
+         function PlayAudio() {
+             return $http.Get(service.WebApiUrl + 'Captcha/PlayAudio').then(handleSuccess, handleADError);
+
+         }
+        function Login(user) {
+            return $http.post(service.WebApiUrl + 'AzureAD/SignIn', user).then(handleSuccess, handleADError);
+            //('Error creating Azure AD Account.')
+        }
+
+        function ChangePassword(user) {
+            var username = '<%= Session["UserGraphAuthKey"] %>';
+            var a = sessionStorage;
+            return $http.put(service.WebApiUrl + 'AzureAD/PutChangePassword', user, {
+    headers: {'Authorization': 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='}
+}).then(handleSuccess, handleADError);
+            //('Error creating Azure AD Account.')
+        }
+
+        //function CreateTempStudent(user) {
+        //    return $http.post(service.WebApiUrl + 'TempStudents/PostCreateTempStudent', user, { headers: { 'Authorization': 'No Athorized' }, dataType:'jsonp' }).then(handleSuccess, handleError('Error creating user.'));
+        //}
+        function CreateTempStudent(user) {
+             return $http.post('/User/CreateTempStudent', user, { headers: { 'Authorization': 'No Athorized' }, dataType: 'jsonp' }).then(handleSuccess, handleError('Error creating user.'));
+        }
+
+        //function SendOTP(MobileNo,SMSType,Name) {//StudentOnBoardingSMS
+        //    return $http.post(service.WebApiUrl + 'OTP/PostSendSMS?Mobile=' + MobileNo + '&SMS=&SMSType=' + SMSType + '&Name=' + Name, 'Mobile=' + MobileNo + '&SMS=&SMSType=' + SMSType + '&Name=' + Name, { headers: { 'Authorization': 'No Athorized' } }).then(handleSuccess, handleError('Error in otp.'));
+        //}
+
+        function SendOTP(MobileNo, SMSType, Name) {//StudentOnBoardingSMS
+            
+            return $http.post('/User/PostSendSMS?Mobile=' + MobileNo + '&SMS=&SMSType=' + SMSType + '&Name=' + Name, 'Mobile=' + MobileNo + '&SMS=&SMSType=' + SMSType + '&Name=' + Name, { headers: { 'Authorization': 'No Athorized' } }).then(handleSuccess, handleError('Error in otp.'));
+        }
+        //function GetTempStudent(Vs) {
+        //    return $http.get(service.WebApiUrl + 'TempStudents/GetTempStudent?VerificationString=' + Vs, 'VerificationString=' + Vs, { headers: { 'Authorization': 'No Athorized' } }).then(handleSuccess, handleError('Error creating user.'));
+        //}
+
+        function GetTempStudent(Vs) {
+            return $http.get('/User/GetTempStudent?VerificationString=' +Vs, 'VerificationString=' +Vs, { headers: { 'Authorization': 'No Athorized' } }).then(handleSuccess, handleError('Error creating user.'));
+        }
+        function GetUserRegistrationStatusDetail(Vs) {
+            return $http.get(service.WebApiUrl + 'TempStudents/GetUserRegistrationStatusDetail?VerificationString=' + Vs).then(handleSuccess, handleError('Error creating user.'));
+        }
+        //function VerifyOTP(MobileNo,OTP) {
+        //    return $http.get(service.WebApiUrl + 'OTP/GetVerifyOTP?Mobile=' + MobileNo + '&MobileOTP=' + OTP, 'Mobile=' + MobileNo + '&MobileOTP=' + OTP, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleError('Error verifying to user.'));
+        //}
+
+        function VerifyOTP(MobileNo, OTP) {
+            return $http.get('/User/GetVerifyOTP?Mobile=' + MobileNo + '&MobileOTP=' + OTP, 'Mobile=' + MobileNo + '&MobileOTP=' + OTP, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleError('Error verifying to user.'));
+        }
+
+        // function CheckUserIDAvailability(UserID) {
+        //     return $http.post(service.WebApiUrl + 'AzureAD/PostUserIDAvailability?UserID=' + UserID, UserID).then(handleSuccess, handleADError);
+        //    //('Error creating Azure AD Account.')
+        //}
+
+        function CheckUserIDAvailability(UserID) {
+            return $http.post(service.WebApiUrl + 'AzureAD/PostUserIDAvailability?UserID=' + UserID, UserID).then(handleSuccess, handleADError);
+            //('Error creating Azure AD Account.')
+        }
+
+        //function CreateAzureAD(AD) {
+        //    return $http.post(service.WebApiUrl + 'AzureAD/PostCreateAzureAD', AD, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleADError);
+        //    //('Error creating Azure AD Account.')
+        //}
+
+        function CreateAzureAD(AD) {
+             return $http.post('/User/PostCreateAzureAD', AD, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleADError);
+            //('Error creating Azure AD Account.')
+        }
+
+        //function CreateStudent(user) {
+        //    return $http.put(service.WebApiUrl + 'Students/PutCreateStudent', user, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleError('Error creating user.'));
+        //}
+
+        function CreateStudent(user) {
+
+            return $http.put('/User/PutCreateStudent', user, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleError('Error creating user.'));
+        }
+
+        function CreatePI(user) {
+            return $http.put(service.WebApiUrl + 'Pi/PutCreatePi', user, { headers: { 'Authorization': 'Basic Athorized' } }).then(handleSuccess, handleError('Error creating user.'));
+        }
+      
+
+        // private functions
+
+        function handleSuccess(res) {
+            return res.data;
+        }
+        function handleADError(error) {
+            return error.data.split(':')[5].split('}')[0].replace('"','');
+        }
+        function handleError(error) {
+            return function () {
+                return { success: false, message: error };
+            };
+        }
+    }
+
+})();
+&¿ÒÅÑ      \IKó\IKó?ùA\R„â   O    :https://assets.swayam.gov.in/Swayam/js/app-services/user.service.js?v=17122018 necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: application/javascript
+Last-Modified: Tue, 19 Dec 2017 04:09:07 GMT
+Accept-Ranges: bytes
+ETag: "9eebb01d7f78d31:0"
+Server: Microsoft-IIS/8.5
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+X-Powered-By: ASP.NET, ARR/3.0, ASP.NET
+Content-Length: 8318
+Cache-Control: max-age=604800
+Date: Thu, 24 Jan 2019 05:17:23 GMT
+ original-response-headers Content-Type: application/javascript
+Last-Modified: Tue, 19 Dec 2017 04:09:07 GMT
+Accept-Ranges: bytes
+ETag: "9eebb01d7f78d31:0"
+Server: Microsoft-IIS/8.5
+X-Powered-By: ASP.NET
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+X-Powered-By: ARR/3.0
+X-Powered-By: ASP.NET
+Content-Length: 8318
+Cache-Control: max-age=604800
+Date: Thu, 24 Jan 2019 05:17:23 GMT
+Connection: keep-alive
+ uncompressed-len 0 net-response-time-onstart 979 net-response-time-onstop 979    ~

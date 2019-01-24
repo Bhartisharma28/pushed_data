@@ -1,0 +1,447 @@
+gnome-session-binary[1725]: WARNING: Could not get session id for session. Check that logind is properly installed and pam_systemd is getting used at login.
+gnome-keyring-daemon: error getting process capabilities, aborting
+gnome-keyring-daemon: error getting process capabilities, aborting
+gnome-keyring-daemon: error getting process capabilities, aborting
+gnome-session-binary[1725]: WARNING: App 'gnome-keyring-secrets.desktop' exited with code 1
+gnome-session-binary[1725]: WARNING: App 'gnome-keyring-pkcs11.desktop' exited with code 1
+gnome-session-binary[1725]: WARNING: App 'gnome-keyring-ssh.desktop' exited with code 1
+
+(process:1884): indicator-application-service-WARNING **: Unable to get watcher name 'org.kde.StatusNotifierWatcher'
+
+(process:1884): indicator-application-service-WARNING **: Name Lost
+
+(polkit-gnome-authentication-agent-1:1883): polkit-gnome-1-WARNING **: Unable to determine the session we are in: No session for pid 1883
+No such schema 'org.mate.screensaver'
+No such schema 'apps.light-locker'
+No such schema 'apps.light-locker'
+No such schema 'apps.light-locker'
+No such schema 'apps.light-locker'
+
+(gnome-software:1881): Gs-WARNING **: failed to open plugin /usr/lib/gs-plugins-9/libgs_plugin_xdg_app_reviews.so: /usr/lib/gs-plugins-9/libgs_plugin_xdg_app_reviews.so: cannot open shared object file: No such file or directory
+
+(gnome-software:1881): Gs-WARNING **: Failed to create permission org.freedesktop.packagekit.trigger-offline-update: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: Action org.freedesktop.packagekit.trigger-offline-update is not registered
+
+(gnome-software:1881): Gs-WARNING **: Failed to create permission org.freedesktop.packagekit.trigger-offline-update: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: Action org.freedesktop.packagekit.trigger-offline-update is not registered
+
+(gnome-software:1881): Gs-WARNING **: Failed to create permission org.freedesktop.packagekit.trigger-offline-update: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: Action org.freedesktop.packagekit.trigger-offline-update is not registered
+
+(gnome-software:1881): Gs-WARNING **: Failed to create permission org.freedesktop.packagekit.trigger-offline-update: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: Action org.freedesktop.packagekit.trigger-offline-update is not registered
+
+(gnome-software:1881): Gs-WARNING **: Failed to create permission org.freedesktop.packagekit.trigger-offline-update: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: Action org.freedesktop.packagekit.trigger-offline-update is not registered
+Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: Failed to download https://secure-lvfs.rhcloud.com/downloads/firmware.xml.gz.asc, ignoring: Cannot resolve hostname
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data
+
+(gnome-software:1881): GsPlugin-WARNING **: failed to load cached icon 64x64: Image file '/var/lib/app-info/icons/ubuntu-xenial-updates-main/64x64' contains no data

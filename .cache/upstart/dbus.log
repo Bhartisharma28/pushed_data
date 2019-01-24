@@ -1,0 +1,54 @@
+Activating service name='org.ayatana.bamf'
+Activating service name='org.gtk.vfs.Daemon'
+Successfully activated service 'org.gtk.vfs.Daemon'
+Activating service name='org.a11y.Bus'
+Successfully activated service 'org.a11y.Bus'
+Activating service name='org.a11y.atspi.Registry'
+
+** (process:1443): WARNING **: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+Successfully activated service 'org.a11y.atspi.Registry'
+Successfully activated service 'org.ayatana.bamf'
+Activating service name='ca.desrt.dconf'
+Successfully activated service 'ca.desrt.dconf'
+Activating service name='org.gnome.ScreenSaver'
+Activating service name='org.gnome.evolution.dataserver.Sources5'
+
+** (gnome-screensaver:1779): WARNING **: Couldn't get presence status: The name org.gnome.SessionManager was not provided by any .service files
+Successfully activated service 'org.gnome.ScreenSaver'
+Successfully activated service 'org.gnome.evolution.dataserver.Sources5'
+Activating service name='org.gnome.evolution.dataserver.Calendar7'
+Activating service name='org.gtk.vfs.UDisks2VolumeMonitor'
+Successfully activated service 'org.gtk.vfs.UDisks2VolumeMonitor'
+Activating service name='org.gtk.vfs.AfcVolumeMonitor'
+Successfully activated service 'org.gtk.vfs.AfcVolumeMonitor'
+Activating service name='org.gtk.vfs.GPhoto2VolumeMonitor'
+Successfully activated service 'org.gtk.vfs.GPhoto2VolumeMonitor'
+Activating service name='org.gtk.vfs.MTPVolumeMonitor'
+Successfully activated service 'org.gtk.vfs.MTPVolumeMonitor'
+Activating service name='org.gtk.vfs.GoaVolumeMonitor'
+Successfully activated service 'org.gtk.vfs.GoaVolumeMonitor'
+** Message: Lost the name, shutting down.
+Successfully activated service 'org.gnome.evolution.dataserver.Calendar7'
+Activating service name='org.gnome.evolution.dataserver.AddressBook9'
+Activating service name='org.gtk.vfs.Metadata'
+Successfully activated service 'org.gtk.vfs.Metadata'
+Successfully activated service 'org.gnome.evolution.dataserver.AddressBook9'
+Activating service name='org.gnome.zeitgeist.Engine'
+
+** (process:2091): WARNING **: zeitgeist-vacuum.vala:38: Impossible to open database `/tmp/guest-agsxot/.local/share/zeitgeist/activity.sqlite': unable to open database file
+Activating service name='org.gnome.zeitgeist.SimpleIndexer'
+Successfully activated service 'org.gnome.zeitgeist.Engine'
+
+** (zeitgeist-datahub:2101): WARNING **: zeitgeist-datahub.vala:229: Unable to get name "org.gnome.zeitgeist.datahub" on the bus!
+** Message: Index must be upgraded. Doing full rebuild
+Successfully activated service 'org.gnome.zeitgeist.SimpleIndexer'
+
+** (zeitgeist-fts:2099): WARNING **: Unable to get info on application://zeitgeist-datahub.desktop
+
+** (zeitgeist-fts:2099): WARNING **: Unable to get info on application://gcalctool.desktop
+Activating service name='org.freedesktop.Notifications'
+Successfully activated service 'org.freedesktop.Notifications'
+Activating service name='org.gnome.Terminal'
+Activating service name='org.gnome.GConf'
+Successfully activated service 'org.gnome.GConf'
+Successfully activated service 'org.gnome.Terminal'

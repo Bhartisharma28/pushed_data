@@ -1,0 +1,805 @@
+ï»¿angular.module('Rapp', ['chart.js']).controller('ReportsController', ['$scope', '$http', '$timeout',
+    function ($scope, $http, $timeout) {
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.ShowPaging = false;
+
+        $scope.currentPage1 = 0;
+        $scope.pageSize1 = 10;
+        $scope.ShowPaging1 = false;
+
+        $scope.currentPage2 = 0;
+        $scope.pageSize2 = 10;
+        $scope.ShowPaging2 = false;
+
+        $scope.currentPage3 = 0;
+        $scope.pageSize3 = 5;
+        $scope.ShowPaging3 = false;
+
+        $scope.currentPage4 = 0;
+        $scope.pageSize4 = 5;
+        $scope.ShowPaging4 = false;
+
+        $scope.data2 = null;
+        $scope.data1 = null;
+        var data = [];
+        $scope.tablecolletion = [];
+        //$scope.Header = "Student Course View";
+        $scope.Header = $('.clsSCV').text();
+        //var date = new Date();
+        $scope.sc = "Student Course View";
+        $scope.st = "Student Course Tracker";
+        $scope.sn = "Student Notices";
+        $scope.sd = "Student Grievances";
+        $scope.TitleVisibility = true;
+        //$scope.CurrentDate = Date();
+        $scope.chartview = true;
+        $scope.CourseId = 0;
+        $scope.MGCourseId = 0;
+
+
+        var urlstring = '/StudentReport/GetStudentCourseView'
+        if (document.location.hash)
+            CallFunction(urlstring);
+        var GetStudentCourses = '/StudentReport/GetStudentCourses'
+        var GetStudentCoursesforMarksGrades = '/StudentReport/GetStudentCoursesforMarksGrades'
+        if (document.location.hash) {
+            CourseFunction(GetStudentCourses, 0);
+            CourseFunctionMG(GetStudentCoursesforMarksGrades, 0);
+        }
+
+        $scope.dvStudentCourse = true;
+        $scope.dvStudentTracker = false;
+        $scope.courseFilterViewMG = false;
+        $scope.dvMarksGrades = false;
+        $scope.dvStudentNotices = false;
+        $scope.courseFilterView = false;
+        $scope.dvStudentGrievances = false;
+
+        $scope.CourseList = function () {
+
+        }
+
+
+        $scope.StudentCourseClick = function () {
+            $scope.dvStudentCourse = true;
+            $scope.dvStudentTracker = false;
+            $scope.courseFilterViewMG = false;
+            $scope.dvMarksGrades = false;
+            $scope.dvStudentNotices = false;
+            $scope.dvStudentGrievances = false;
+            $scope.courseFilterView = false;
+            $('.inner').removeClass('inner active active-tab-color active-tab-txtcolor')
+                .addClass('inner inactive inactive-tab-color inactive-tab-txtcolor');
+            $('.clsSCV').removeClass('inner inactive inactive-tab-color inactive-tab-txtcolor')
+                .addClass('inner active active-tab-color active-tab-txtcolor');
+            //$('.clsSCV a').removeClass('black').addClass('white');
+            //$('.inner a').removeClass('white').addClass('black');
+            showLoader();
+
+            //$scope.CurrentDate = Date();
+            //$scope.Header = $scope.sc;
+            $scope.Header = $('.clsSCV').text();
+            var urlstring = '/StudentReport/GetStudentCourseView'
+            CallFunction(urlstring);
+            $scope.TitleVisibility = true;
+            $scope.chartview = true;
+        }
+
+        $scope.StudentCourseTrackerClick = function (CourseId) {
+            $scope.dvStudentCourse = false;
+            $scope.dvStudentTracker = true;
+            $scope.courseFilterViewMG = false;
+            $scope.dvMarksGrades = false;
+            $scope.dvStudentNotices = false;
+            $scope.dvStudentGrievances = false;
+            $scope.courseFilterView = true;
+            $('.inner').removeClass('inner active active-tab-color active-tab-txtcolor')
+                .addClass('inner inactive inactive-tab-color inactive-tab-txtcolor');
+            $('.clsSCT').removeClass('inner inactive inactive-tab-color inactive-tab-txtcolor')
+                .addClass('inner active active-tab-color active-tab-txtcolor');
+
+            showLoader();
+
+            //$scope.CurrentDate = Date();
+            //$scope.Header = $scope.st;
+            $scope.Header = $('.clsSCT').text();
+            if (parseInt(CourseId) > 0) {
+                $scope.selectedCourse = CourseId;
+            }
+            else {
+
+                CourseId = $scope.selectedCourse;
+            }
+            if (CourseId == undefined)
+                CourseId = '0';
+            var urlstring = '/StudentReport/GetStudentCourseTracker?CourseId=' + CourseId;
+
+            CallFunction(urlstring);
+
+
+            $scope.TitleVisibility = true;
+            $scope.chartview = false;
+        }
+
+        $scope.StudentCoursechange = function () {
+            showLoader();
+            var urlstring = '/StudentReport/GetStudentCourseTracker?CourseId=' + $scope.selectedCourse;
+            CallFunction(urlstring);
+        }
+
+        $scope.StudentMarksGradesClick = function (MGCourseId) {
+            $scope.dvStudentCourse = false;
+            $scope.dvStudentTracker = false;
+            $scope.courseFilterViewMG = true;
+            $scope.dvMarksGrades = true;
+            $scope.dvStudentNotices = false;
+            $scope.dvStudentGrievances = false;
+            $scope.courseFilterView = false;
+            $('.inner').removeClass('inner active active-tab-color active-tab-txtcolor')
+                .addClass('inner inactive inactive-tab-color inactive-tab-txtcolor');
+            $('.clsMG').removeClass('inner inactive inactive-tab-color inactive-tab-txtcolor')
+                .addClass('inner active active-tab-color active-tab-txtcolor');
+
+            showLoader();
+
+            $scope.Header = $('.clsMG').text();
+            if (parseInt(MGCourseId) > 0) {
+                $scope.selectedCourse1 = MGCourseId;
+            }
+            else {
+
+                MGCourseId = $scope.selectedCourse1;
+            }
+            if (MGCourseId == undefined)
+                MGCourseId = '0';
+            var urlstring = '/StudentReport/GetTestAssignmentScores?CourseId=' + MGCourseId;
+
+            CallFunctionMG(urlstring);
+
+
+            $scope.TitleVisibility = true;
+            $scope.chartview = true;
+
+        }
+
+        $scope.StudentCoursechange1 = function () {
+            showLoader();
+            var urlstring = '/StudentReport/GetTestAssignmentScores?CourseId=' + $scope.selectedCourse1;
+            CallFunctionMG(urlstring);
+        }
+
+        $scope.StudentNoticesClick = function () {
+
+            $scope.dvStudentCourse = false;
+            $scope.dvStudentTracker = false;
+            $scope.courseFilterViewMG = false;
+            $scope.dvMarksGrades = false;
+            $scope.dvStudentNotices = true;
+            $scope.dvStudentGrievances = false;
+            $scope.courseFilterView = false;
+
+            $('.inner').removeClass('inner active active-tab-color active-tab-txtcolor')
+                .addClass('inner inactive inactive-tab-color inactive-tab-txtcolor');
+            $('.clsSN').removeClass('inner inactive inactive-tab-color inactive-tab-txtcolor')
+                .addClass('inner active active-tab-color active-tab-txtcolor');
+
+            showLoader();
+
+            //$scope.CurrentDate = Date();
+            //$scope.Header = $scope.sn;
+
+            $scope.Header = $('.clsSN').text();
+            var urlstring = '/StudentReport/GetStudentNotices'
+            CallFunction1(urlstring);
+            $scope.TitleVisibility = true;
+            $scope.chartview = true;
+        }
+
+
+        $scope.StudentGrievancesClick = function () {
+            $scope.dvStudentCourse = false;
+            $scope.dvStudentTracker = false;
+            $scope.courseFilterViewMG = false;
+            $scope.dvMarksGrades = false;
+            $scope.dvStudentNotices = false;
+            $scope.dvStudentGrievances = true;
+            $scope.courseFilterView = false;
+            $('.inner').removeClass('inner active active-tab-color active-tab-txtcolor')
+                .addClass('inner inactive inactive-tab-color inactive-tab-txtcolor');
+            $('.clsSD').removeClass('inner inactive inactive-tab-color inactive-tab-txtcolor')
+                .addClass('inner active active-tab-color active-tab-txtcolor');
+            showLoader();
+            $scope.Header = $('.clsSD').text();
+            GrievanceCategory();
+            loadGravanceList('0');
+            $scope.TitleVisibility = true;
+            $scope.chartview = true;
+        }
+        function GrievanceCategory() {
+            $http({
+                method: 'Get',
+                url: '/StudentReport/GetStudentGrievanceCategory',
+            }).success(function (result) {
+                $scope.GrievanceCategoryList1 = result;
+
+            }).error(function (result) {
+
+            })
+        }
+
+        $scope.StudentGrievancechange = function () {
+            var ddlvalue;
+            if ($scope.Grievance == undefined || $scope.Grievance == '') {
+                ddlvalue = '0';
+            } else {
+                ddlvalue = $scope.Grievance;
+            }
+            loadGravanceList(ddlvalue)
+        }
+
+        function loadGravanceList(ddlvalue) {
+            $http({
+                method: 'POST',
+                url: '/StudentReport/GetStudentGrievanceCategoryList',
+                data: { CategoryId: ddlvalue }
+            }).success(function (result) {
+                $scope.GrievanceCategoryList = result;
+                $scope.GrievanceCategoryListPrint = result;
+                tablebind2();
+                hideLoader();
+            }).error(function (result) {
+                hideLoader();
+            })
+        }
+
+        //$scope.StudentGrievanceDownload = function () {
+
+        //    $http({
+        //        method: 'POST',
+        //        url: '/StudentReport/DownloadCourseListDetails?CategoryId=' + 1 + "&DownloadType=" + "excel",
+        //    }).success(function (result) {
+        //        $scope.GrievanceCategoryList = result;
+        //        //hideLoader();
+        //    }).error(function (result) {
+        //    })
+        //}
+
+
+        $scope.SelectCourse = function () {
+
+            $scope.selectedCourse = $('#ddlCourseVal').val();
+        }
+
+        $scope.SelectCourse1 = function () {
+
+            $scope.selectedCourse1 = $('#ddlCourseVal1').val();
+        }
+
+        function showLoader() {
+            if ($("#dvOopsInner").is(":visible")) {
+                $("#dvOopsInner").hide();
+            }
+
+            if ($('#dvProgressInner').is(":visible")) {
+                $("#dvProgressInner").hide();
+            }
+
+            $("#dvloaderInner").show();
+        }
+
+        function hideLoader() {
+            if ($("#dvOopsInner").is(":visible")) {
+                $("#dvOopsInner").hide();
+            }
+            if ($('#dvloaderInner').is(":visible")) {
+                $("#dvloaderInner").hide();
+            }
+            $("#dvProgressInner").show();
+        }
+
+
+        function CourseFunction(fullurl) {
+            $http({
+                method: 'Get',
+                url: fullurl,
+            }).success(function (result) {
+                $scope.Courses = result;
+
+                $scope.selectedCourse = $scope.Courses[0].CourseID;
+
+            }).error(function (result) {
+                $("#dvloaderInner").fadeOut(2000, function () {
+                    $("#dvOopsInner").fadeIn(500, function () {
+
+                    });
+                });
+            });
+        }
+
+        function CourseFunctionMG(fullurl) {
+            $http({
+                method: 'Get',
+                url: fullurl,
+            }).success(function (result) {
+                $scope.CoursesMG = result;
+
+                $scope.selectedCourse1 = $scope.CoursesMG[0].CourseID;
+
+            }).error(function (result) {
+                $("#dvloaderInner").fadeOut(2000, function () {
+                    $("#dvOopsInner").fadeIn(500, function () {
+
+                    });
+                });
+            });
+        }
+
+
+
+        function CallFunction(fullurl) {
+            $http({
+                method: 'Get',
+                url: fullurl
+            }).success(function (result) {
+                data = [];
+                $scope.tablecolletion = result;
+                data = result;
+                tablebind();
+                //tablebind1();
+                $scope.datanotavailable = (result.length > 0 ? false : true);
+
+                if (result.length > 0) {
+                    hideLoader();
+                    //if (!$scope.chartview)
+                    DrawChart(result);
+                }
+                else {
+                    hideLoader();
+                    $scope.chartview = true;
+                }
+
+
+
+            }).error(function (result) {
+                $("#dvloaderInner").fadeOut(2000, function () {
+                    $("#dvOopsInner").fadeIn(500, function () {
+
+                    });
+                });
+            });
+        }
+
+
+        function CallFunction1(fullurl) {
+            $http({
+                method: 'Get',
+                url: '/StudentReport/GetStudentNotices'
+                //url: '/StudentReport/GetStudentCourseView',
+            }).success(function (result) {
+
+                $scope.tablecolletionNotices = result;
+                tablebind1();
+                $scope.datanotavailable = (result.length > 0 ? false : true);
+                if (result.length > 0) {
+                    if (!$scope.chartview)
+                        DrawChart(result);
+                }
+                else {
+                    $scope.chartview = true;
+                }
+
+                hideLoader();
+
+            }).error(function (result) {
+                $("#dvloaderInner").fadeOut(2000, function () {
+                    $("#dvOopsInner").fadeIn(500, function () {
+
+                    });
+                });
+            });
+        }
+
+        //User story 15111 - The below call function is used to bind the two grids 
+        //test score grid and assignment score grid
+        function CallFunctionMG(fullurl) {
+            $http({
+                method: 'Get',
+                url: fullurl
+            }).success(function (result) {
+                var testsdata = result.Item2;
+                var assignmentsdata = result.Item1;
+                $scope.tablecolletionTestMarks = testsdata;
+                tablebind3();
+                $scope.datanotavailabletests = (testsdata.length > 0 ? false : true);
+                if (testsdata.length > 0) {
+                    if (!$scope.chartview)
+                        DrawChart(testsdata);
+                }
+                else {
+                    $scope.chartview = true;
+                }
+
+                $scope.tablecolletionAssignmentMarks = assignmentsdata;
+                tablebind4();
+                $scope.datanotavailableassignment = (assignmentsdata.length > 0 ? false : true);
+                if (assignmentsdata.length > 0) {
+                    if (!$scope.chartview)
+                        DrawChart(assignmentsdata);
+                }
+                else {
+                    $scope.chartview = true;
+                }
+
+                hideLoader();
+
+            }).error(function (result) {
+                $("#dvloaderInner").fadeOut(2000, function () {
+                    $("#dvOopsInner").fadeIn(500, function () {
+
+                    });
+                });
+            });
+        }
+
+
+
+
+        function tablebind() {
+            $scope.currentPage = 0;
+            $scope.numberOfPages = function () {
+                return Math.ceil($scope.tablecolletion.length / $scope.pageSize);
+            }
+
+            //alert(numberOfPages);
+            if (data.length > $scope.pageSize) {
+                $scope.ShowPaging = true;
+
+            }
+            else {
+                $scope.ShowPaging = false;
+
+            }
+            if (data.length > 0) {
+                $scope.IsEmpty = false;
+            }
+            else {
+                $scope.IsEmpty = true;
+            }
+
+        }
+
+        function tablebind1() {
+            $scope.currentPage1 = 0;
+            $scope.numberOfPages1 = function () {
+                return Math.ceil($scope.tablecolletionNotices.length / $scope.pageSize1);
+            }
+
+            //alert(numberOfPages);
+            if ($scope.tablecolletionNotices.length > $scope.pageSize1) {
+                $scope.ShowPaging1 = true;
+
+            }
+            else {
+                $scope.ShowPaging1 = false;
+
+            }
+            if ($scope.tablecolletionNotices.length > 0) {
+                $scope.IsEmpty = false;
+            }
+            else {
+                $scope.IsEmpty = true;
+            }
+
+        }
+
+
+        function tablebind2() {
+            $scope.datanotavailableGravience = ($scope.GrievanceCategoryList.length > 0 ? false : true);
+            $scope.BtnDwnPrt = ($scope.GrievanceCategoryList.length > 0 ? true : false);
+            $scope.currentPage2 = 0;
+            $scope.numberOfPages2 = function () {
+                return Math.ceil($scope.GrievanceCategoryList.length / $scope.pageSize2);
+            }
+
+            //alert(numberOfPages);
+            if ($scope.GrievanceCategoryList.length > $scope.pageSize2) {
+                $scope.ShowPaging2 = true;
+
+            }
+            else {
+                $scope.ShowPaging2 = false;
+
+            }
+            if ($scope.GrievanceCategoryList.length > 0) {
+                $scope.IsEmpty = false;
+
+            }
+            else {
+                $scope.IsEmpty = true;
+
+            }
+
+        }
+
+        //User Story 15111 - Bind Test Score grid on page 'Marks/Grades'
+        function tablebind3() {
+            $scope.currentPage3 = 0;
+            $scope.numberOfPages3 = function () {
+                return Math.ceil($scope.tablecolletionTestMarks.length / $scope.pageSize3);
+            }
+
+            //alert(numberOfPages);
+            if ($scope.tablecolletionTestMarks.length > $scope.pageSize3) {
+                $scope.ShowPaging3 = true;
+
+            }
+            else {
+                $scope.ShowPaging3 = false;
+
+            }
+            if ($scope.tablecolletionTestMarks.length > 0) {
+                $scope.IsEmpty = false;
+            }
+            else {
+                $scope.IsEmpty = true;
+            }
+
+        }
+
+        //User Story 15111 - Bind Assignment Score grid on page 'Marks/Grades'
+        function tablebind4() {
+            $scope.currentPage4 = 0;
+            $scope.numberOfPages4 = function () {
+                return Math.ceil($scope.tablecolletionAssignmentMarks.length / $scope.pageSize4);
+            }
+
+            //alert(numberOfPages);
+            if ($scope.tablecolletionAssignmentMarks.length > $scope.pageSize4) {
+                $scope.ShowPaging4 = true;
+
+            }
+            else {
+                $scope.ShowPaging4 = false;
+
+            }
+            if ($scope.tablecolletionAssignmentMarks.length > 0) {
+                $scope.IsEmpty = false;
+            }
+            else {
+                $scope.IsEmpty = true;
+            }
+
+        }
+
+
+        function DrawChart(data) {
+
+            var labelarray = [];
+            var dataarray = [];
+            var dataarray1 = [];
+            var scom = 0, sincom = 0;
+
+            // For Horizontal Bar Chart
+            //dataarray.push(data[0].WeeklyReadingList);
+            dataarray.push(data[0].Articles.replace("N/A", "").replace(" %", ""));
+            dataarray.push(data[0].Tests.replace("N/A", "").replace(" %", ""));
+            dataarray.push(data[0].Assignments.replace("N/A", "").replace(" %", ""));
+            if (typeof data[0].LiveClasses != "undefined") {
+                dataarray.push(data[0].LiveClasses.replace("N/A", "").replace(" %", ""));
+            }
+            dataarray.push(data[0].VideoAudio.replace("N/A", "").replace(" %", ""));
+            dataarray.push(data[0].Documents.replace("N/A", "").replace(" %", ""));
+            dataarray.push(data[0].Overall.replace("N/A", "").replace(" %", ""));
+
+            $scope.chartdata = dataarray;
+
+            if (typeof data[0].LiveClasses == "undefined") {
+
+                $scope.chartlabel = [
+                    'Articles',
+                    'Tests',
+                    'Assignments',
+                    'Video\'s / Audio\'s',
+                    'Documents',];
+
+            } else {
+                $scope.chartlabel = [
+                    'Articles',
+                    'Tests',
+                    'Assignments',
+                    'Live classes',
+                    'Video\'s / Audio\'s',
+                    'Documents',];
+            }
+
+            $scope.options = {
+                scales: {
+                    xAxes: [
+                        {
+                            ticks: {
+                                min: 0,
+                                max: 100,
+                                callback: function (value, index, values) {
+                                    return value + '%';
+                                }
+                            },
+                        },
+                    ]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            //return tooltipItems.yLabel + ': ' + tooltipItems.xLabel + '%';
+                            return tooltipItems.xLabel + '%';
+                        }
+                    }
+                },
+                responsive: true
+            };
+
+            /* For Doughnut Charts
+             //scom += parseInt(data[0].Documents.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].Documents.replace("N/A", "").replace(" %", ""));
+             //scom += parseInt(data[0].VideoAudio.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].VideoAudio.replace("N/A", "").replace(" %", ""));
+             //if(typeof data[0].LiveClasses != "undefined")
+             //{
+                 //scom += parseInt(data[0].LiveClasses.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].LiveClasses.replace("N/A", "").replace(" %", "") );
+             //}
+             //scom += parseInt(data[0].Assignments.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].Assignments.replace("N/A", "").replace(" %", ""));
+             //scom += parseInt(data[0].Tests.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].Tests.replace("N/A", "").replace(" %", ""));
+             //scom += parseInt(data[0].Articles.replace("N/A", "").replace(" %", "") == "" ? 0 : data[0].Articles.replace("N/A", "").replace(" %", ""));
+           
+           if(typeof data[0].LiveClasses != "undefined")
+            {
+                scom = scom / 6;
+            }else{
+                scom = scom / 5;
+            }
+            */
+            scom = parseFloat(data[0].Overall.replace("N/A", "").replace(" %", "")).toFixed(0);
+
+            $scope.labelsd = ["Completed", "Undergoing"];
+            dataarray1.push(scom);
+            dataarray1.push(100 - scom);
+            $scope.datad = dataarray1;
+            $scope.Percent = scom + '%';
+            $scope.optionsd = {
+                tooltips: {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[0].data[tooltipItem.index];
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': ' + value + '%';
+                        }
+                    }
+                },
+                responsive: true,
+            };
+        }
+
+
+        $scope.printGrievance = function () {
+            pdfdownload(false, true)
+        }
+
+        $scope.Checked = function (val) {
+            if (val == "1") {
+                pdfdownload();
+
+            } else {
+                var blob = new Blob([document.getElementById('printingdiv').innerHTML], {
+                    type: "application/vnd.ms-excel"
+                });
+                saveAs(blob, "StudentGrievance.xls");
+            }
+            $('#DownloadGrievanceList').modal('hide');
+            $("input:radio[name='rblCourseDownload']").each(function (i) {
+                this.checked = false;
+            });
+        }
+
+        $scope.notSorted = function (obj) {
+            if (!obj) {
+                return [];
+            }
+            return Object.keys(obj);
+        }
+        $scope.stripAddr = function (value) {
+            return value.substring(2)
+        }
+
+
+    }]);
+angular.module('Rapp')
+    .filter('startFrom', function () {
+        return function (input, start) {
+            start = parseInt(start, 10);
+            return input.slice(start);
+        };
+    });
+
+angular.module('Rapp')
+    .filter('addBr', function ($sce) {
+
+        return function (input, length) {
+
+            return $sce.trustAsHtml(input.match(new RegExp(".{1," + length + "}", 'g')).join("<br/>"));
+
+        };
+    });
+
+function pdfdownload(ismail, isprint) {
+    var doc = new jsPDF('l', 'pt', 'a4');
+    var currentpage = 0;
+    var footer = function (data) {
+        if (currentpage < doc.internal.getNumberOfPages()) {
+            doc.setFontSize(10);
+            doc.setFontStyle('normal');
+            currentpage = doc.internal.getNumberOfPages();
+        }
+    };
+    doc.setFontSize(18);
+    doc.setTextColor(40);
+    doc.setFontStyle('bold');
+    doc.text("Student Grievances", 20, 35);
+
+    var res = doc.autoTableHtmlToJson(document.getElementById("tableprint"));
+    doc.autoTable(res.columns, res.data, {
+        startY: 40,
+        addPageContent: footer,
+        margin: { horizontal: 20 },
+        bodyStyles: { valign: 'top' },
+        styles: { overflow: 'linebreak' },
+        headerStyles: {
+            fillColor: [51, 122, 183],
+            textColor: [255],
+            halign: 'center'
+        },
+        theme: 'grid'
+    });
+
+    doc.putTotalPages("{total_pages_count_string}")
+    if (ismail) {
+        return doc.output('datauristring');
+    }
+    else if (isprint) {
+        doc.autoPrint();
+        window.open(doc.output('bloburl'), 'Print-Window')
+    }
+    else {
+        doc.save(`StudentGrievances.pdf`);
+    }
+}
+ÿ¥PÄ      \IL\IL?÷ÎÕ\R†   L    :https://assets.swayam.gov.in/prelogin/js/ReportsController.js?ver=3003.0013 necko:classified 1 strongly-framed 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAZFMIIGQTCCBSmgAwIBAgIQCHDxAjm+njY2Fz7Pxm6qgDANBgkqhkiG9w0BAQsFADBNMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5EaWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTgwOTEwMDAwMDAwWhcNMTkwOTEwMTIwMDAwWjB/MQswCQYDVQQGEwJJTjEOMAwGA1UECBMFRGVsaGkxEjAQBgNVBAcTCU5ldyBEZWxoaTEyMDAGA1UEChMpQWxsIEluZGlhIENvdW5jaWwgZm9yIFRlY2huaWNhbCBFZHVjYXRpb24xGDAWBgNVBAMMDyouc3dheWFtLmdvdi5pbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMne1DXnGJsaTH0I8UobCgx4ZuQ5Oh6K6+w6fgWVxzkcjH8cdXLVoujEXxU/HR+Ubbq9kLI8x44drf/NEHY1aZ5OtNihvEeix6VnVVdWL+M0yfA7QMCrgsrlUzocqjBsPCCKxsE3NZHKnyk1K3Sj7Y4GNJZb5h9XW+Z2Ad0UyOfX31iD1n+eWGgy+dw1TVe/Hk2N+3IsJaE+LQP4/ye50ucrd9o1GurnLY8CuS/A58gW56LqVUbNKPfKqzB57M7rTydp9ofs/6fMv2NobCtuUXbMjBh0RCY8bkexLF6rBB6za3wJRgQXLHEzWTnhLKMMYxx64VMoEZH7mUO49BHT3fUCAwEAAaOCAukwggLlMB8GA1UdIwQYMBaAFA+AYRyCMWHVLyjnjUY4tCzhxtniMB0GA1UdDgQWBBTSFEk7q/TipRHFm7235V89tps6ETApBgNVHREEIjAggg8qLnN3YXlhbS5nb3YuaW6CDXN3YXlhbS5nb3YuaW4wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBrBgNVHR8EZDBiMC+gLaArhilodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vc3NjYS1zaGEyLWc2LmNybDAvoC2gK4YpaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL3NzY2Etc2hhMi1nNi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1sAQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIwfAYIKwYBBQUHAQEEcDBuMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wRgYIKwYBBQUHMAKGOmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFNIQTJTZWN1cmVTZXJ2ZXJDQS5jcnQwCQYDVR0TBAIwADCCAQMGCisGAQQB1nkCBAIEgfQEgfEA7wB1AKS5CZC0GFgUh7sTosxncAo8NZgE+RvfuON3zQ7IDdwQAAABZcPKAPoAAAQDAEYwRAIgYC/z/c+K5TUBeOWNw89cn6yB53m5O1AC44jE67EjkGsCIHiNzEqK9WwqgtuJCYynam4nGYwiLBR0qHFhzzx+xcZCAHYAh3W/51l8+IxDmV+9827/Vo1HVjb/SrVgwbTq/16ggw8AAAFlw8oB3gAABAMARzBFAiEAlrC3wVXaueNsnTEA5/NygPLVJ493kNBQSE4il/Jp/2oCICg03DBR7gl6LJdjF9tcAVuStM6ePqYDhJXe9rhF82rwMA0GCSqGSIb3DQEBCwUAA4IBAQCzE1EWLldmFaD70u7K1A5qEgqg7TSiEqTrZN0XutdQIUNJBc1SJilVbSw+KOIIR8MtDlIeXjoTbMkcREjsgmSLckJ8WU8ueGtRNCeJsPxqCckLan3O1d2uR8d0EJu7MeJyhxFvHM/MkmvoeRBD/yn3++J471YXnp4uMuLGf0DlddJZVrIykLov3AlALtqIzrw783aaTIW2PmctXQLqbXxgzLcMMVbhHoCSF795SKJAi84UPjxCcTla0luogVEfA1BRLgxC7ul1xgQwqU/nyeKClIgnWjmAOPMQG5fOi3gMA+CDPrqrDcSdCe2VuL6kUp/1IxkQn0ErD6aYCiQhdkTFwDADAwAAAAABAQAAAAAAAARub25lAAAADlJTQS1QU1MtU0hBMjU2AZWfsWVlF0h/q5vYkTvlMZeudM2lzS9HP5b18Lf/9ixoAAAAA2YKMiaRXE/7uyCJhaYy3wW9w5eaVCJM1YWJaWtuluqDAAAAAAAABkUwggZBMIIFKaADAgECAhAIcPECOb6eNjYXPs/GbqqAMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIgU2VjdXJlIFNlcnZlciBDQTAeFw0xODA5MTAwMDAwMDBaFw0xOTA5MTAxMjAwMDBaMH8xCzAJBgNVBAYTAklOMQ4wDAYDVQQIEwVEZWxoaTESMBAGA1UEBxMJTmV3IERlbGhpMTIwMAYDVQQKEylBbGwgSW5kaWEgQ291bmNpbCBmb3IgVGVjaG5pY2FsIEVkdWNhdGlvbjEYMBYGA1UEAwwPKi5zd2F5YW0uZ292LmluMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyd7UNecYmxpMfQjxShsKDHhm5Dk6Horr7Dp+BZXHORyMfxx1ctWi6MRfFT8dH5Rtur2QsjzHjh2t/80QdjVpnk602KG8R6LHpWdVV1Yv4zTJ8DtAwKuCyuVTOhyqMGw8IIrGwTc1kcqfKTUrdKPtjgY0llvmH1db5nYB3RTI59ffWIPWf55YaDL53DVNV78eTY37ciwloT4tA/j/J7nS5yt32jUa6uctjwK5L8DnyBbnoupVRs0o98qrMHnszutPJ2n2h+z/p8y/Y2hsK25RdsyMGHREJjxuR7EsXqsEHrNrfAlGBBcscTNZOeEsowxjHHrhUygRkfuZQ7j0EdPd9QIDAQABo4IC6TCCAuUwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFNIUSTur9OKlEcWbvbflXz22mzoRMCkGA1UdEQQiMCCCDyouc3dheWFtLmdvdi5pboINc3dheWFtLmdvdi5pbjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMGsGA1UdHwRkMGIwL6AtoCuGKWh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9zc2NhLXNoYTItZzYuY3JsMC+gLaArhilodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vc3NjYS1zaGEyLWc2LmNybDBMBgNVHSAERTBDMDcGCWCGSAGG/WwBATAqMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5jb20vQ1BTMAgGBmeBDAECAjB8BggrBgEFBQcBAQRwMG4wJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBGBggrBgEFBQcwAoY6aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0U0hBMlNlY3VyZVNlcnZlckNBLmNydDAJBgNVHRMEAjAAMIIBAwYKKwYBBAHWeQIEAgSB9ASB8QDvAHUApLkJkLQYWBSHuxOizGdwCjw1mAT5G9+443fNDsgN3BAAAAFlw8oA+gAABAMARjBEAiBgL/P9z4rlNQF45Y3Dz1yfrIHnebk7UALjiMTrsSOQawIgeI3MSor1bCqC24kJjKdqbicZjCIsFHSocWHPPH7FxkIAdgCHdb/nWXz4jEOZX73zbv9WjUdWNv9KtWDBtOr/XqCDDwAAAWXDygHeAAAEAwBHMEUCIQCWsLfBVdq542ydMQDn83KA8tUnj3eQ0FBITiKX8mn/agIgKDTcMFHuCXosl2MX21wBW5K0zp4+pgOEld72uEXzavAwDQYJKoZIhvcNAQELBQADggEBALMTURYuV2YVoPvS7srUDmoSCqDtNKISpOtk3Re611AhQ0kFzVImKVVtLD4o4ghHwy0OUh5eOhNsyRxESOyCZItyQnxZTy54a1E0J4mw/GoJyQtqfc7V3a5Hx3QQm7sx4nKHEW8cz8ySa+h5EEP/Kff74njvVheeni4y4sZ/QOV10llWsjKQui/cCUAu2ojOvDvzdppMhbY+Zy1dAuptfGDMtwwxVuEegJIXv3lIokCLzhQ+PEJxOVrSW6iBUR8DUFEuDELu6XXGBDCpT+fJ4oKUiCdaOYA48xAbl86LeAwD4IM+uqsNxJ0J7ZW4vqRSn/UjGRCfQSsPppgKJCF2RMVmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAASYMIIElDCCA3ygAwIBAgIQAf2j627KdciIQ4tyS8+8kTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBDQTAeFw0xMzAzMDgxMjAwMDBaFw0yMzAzMDgxMjAwMDBaME0xCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIgU2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bdKpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGXkujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAVowggFWMBIGA1UdEwEB/wQIMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgGGMDQGCCsGAQUFBwEBBCgwJjAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMHsGA1UdHwR0MHIwN6A1oDOGMWh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwN6A1oDOGMWh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcmwwPQYDVR0gBDYwNDAyBgRVHSAAMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwHQYDVR0OBBYEFA+AYRyCMWHVLyjnjUY4tCzhxtniMB8GA1UdIwQYMBaAFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMA0GCSqGSIb3DQEBCwUAA4IBAQAjPt9L0jFCpbZ+QlwaRMxp0Wi0XUvgBCFsS+JtzLHgl4+mUwnNqipl5TlPHoOlblyYoiQm5vuh7ZPHLgLGTUq/sELfeNqzqPlt/yGFUzZgTHbO7Djc1lGA8MXW5dRNJ2Srm8c+cftIl7gzbckTB+6WohsYFfZcTEDts8Ls/3HB40f/1LkAtDdC2iDJ6m6K7hQGrn2iWZiIqBtvLfTyyRRfJs8sjX7tN8Cp1Tm5gr8ZDOo0rwAhaPitc+LJMto4JQtV05od8GiG7S5BNO98pVAdvzr508EIDObtHopYJeS4d60tbvVS3bR0j6tJLp07kzQoH3jOlOrHvdPJbRzeXDLzZgoyJpFcT/u7IImFpjLfBb3Dl5pUIkzVhYlpa26W6oMAAAAAAAADszCCA68wggKXoAMCAQICEAg74FaQQkaxoXVqyVmRx0owDQYJKoZIhvcNAQEFBQAwYTELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEgMB4GA1UEAxMXRGlnaUNlcnQgR2xvYmFsIFJvb3QgQ0EwHhcNMDYxMTEwMDAwMDAwWhcNMzExMTEwMDAwMDAwWjBhMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOI74RFy3qik06NXqlCijwt3kMmipe4SzpZbAQkgzAGTp04wt1P3Q8RpAFed4o0i3YcGQACBCc7OG4O/3807cUbi1mbHBbN2JxaPe54elX3ut0ijCNrWr3oMOQZlf0pdH7wX+Ku+7ijXdH96eJlZhWhuXCMyS79OwOhabeNwv3cQv/wB9oXZqEQQWDKpdRjV0aK+R+InavSaM/hJCGCL1F+0OoS/oapKTH0+z09fbHZeoEs3kZ7cIuZtzhQajmrL/s2zFGQXx1spnjK/8u760wtC1Ku3QTLaDNTv+IHVu41YP7Ub6EkoonDaMQTd97IW8kwKTgeo7Uo9XrV/o5DDrycCAwEAAaNjMGEwDgYDVR0PAQH/BAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMB8GA1UdIwQYMBaAFAPeUDVW0Uy7ZvCj4hsbw5eyPdFVMA0GCSqGSIb3DQEBBQUAA4IBAQDLnDeqSBMSCvrdRJxPUrD0364E9Xl5CKMkGPxLK4TALbnVx/70wR9Yy7htnHp055gpqxG143Cgoc1MiJmTjJFw4qsPHL6Tqf9j1eQHYNOjv51bCfHVjuNT9I5j+j+n27Rm32Jm1tFuQY3yLbXqd0qfnVjiK1nAQCPtLSiCRT55VJImmOCASKg37/DWeWAW3qzoDs1urEQXOC9J2uFFPiq5NlPPOlAG9y7oxFdJbGEhGNUErXg8LDqAa6frrxUU6diJwbk4bOKRbIr/ZLl3JVcwwBsko+Hc6d9HfLW0JAgFMOwtvQu/Rb9Quanz65gBEq3IiMaYNF+NCjzG6dWVlW3eAAA= request-method GET response-head HTTP/1.1 200 OK
+Content-Type: application/javascript
+Last-Modified: Thu, 15 Nov 2018 13:27:59 GMT
+Accept-Ranges: bytes
+ETag: "73a946e77cd41:0"
+Server: Microsoft-IIS/8.5
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+X-Powered-By: ASP.NET, ARR/3.0, ASP.NET
+Content-Length: 26980
+Cache-Control: max-age=604800
+Date: Thu, 24 Jan 2019 05:24:18 GMT
+ original-response-headers Content-Type: application/javascript
+Last-Modified: Thu, 15 Nov 2018 13:27:59 GMT
+Accept-Ranges: bytes
+ETag: "73a946e77cd41:0"
+Server: Microsoft-IIS/8.5
+X-Powered-By: ASP.NET
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+X-Powered-By: ARR/3.0
+X-Powered-By: ASP.NET
+Content-Length: 26980
+Cache-Control: max-age=604800
+Date: Thu, 24 Jan 2019 05:24:18 GMT
+Connection: keep-alive
+ uncompressed-len 0 net-response-time-onstart 444 net-response-time-onstop 599   id
